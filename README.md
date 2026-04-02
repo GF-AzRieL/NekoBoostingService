@@ -46,7 +46,7 @@ The site has three main service categories, each broken down into sub-options:
 
 ---
 
-## How It Works 
+## How It Works (of course it won't)
 
 1. Pick a package
 2. Give your Discord ID and region (no password needed for Duo/Coaching)
