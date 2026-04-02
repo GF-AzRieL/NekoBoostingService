@@ -34,7 +34,7 @@ Each booster has their own profile tab on the site with a description, rank badg
 
 ---
 
-## Services Offered (fake)
+## Services Offered
 
 The site has three main service categories, each broken down into sub-options:
 
@@ -46,7 +46,7 @@ The site has three main service categories, each broken down into sub-options:
 
 ---
 
-## How It Works (according to the site)
+## How It Works 
 
 1. Pick a package
 2. Give your Discord ID and region (no password needed for Duo/Coaching)
