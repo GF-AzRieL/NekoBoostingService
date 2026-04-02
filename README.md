@@ -32,8 +32,6 @@ Each booster has their own profile tab on the site with a description, rank badg
 | **Glacyeon** | The Professional Cat Gamer | Singularity | Cat Pro Gamer | Michelle |
 | **Junlean** | The Baimo Incarnate | Singularity | Baimo | Baimo |
 
-Junlean didn't just master Baimo. He *became* Baimo. Every cooldown tracked by instinct alone. Absolute symbiosis.
-
 ---
 
 ## Services Offered (fake)
