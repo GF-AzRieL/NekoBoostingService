@@ -1,0 +1,2518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neko Elite Services | Strinova Boosting</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00F0FF;
+            /* Calabiyau Cyan */
+            --secondary: #FF6B00;
+            /* Alert Orange */
+            --bg-dark: #0A0B10;
+            /* Deep Void */
+            --bg-card: #1E2129;
+            /* Steel Gray */
+            --text-main: #F2F4F7;
+            /* Strinova White */
+            --text-muted: #8F9BA8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* UTILITIES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo,
+        .btn,
+        .tag,
+        .price {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .text-gradient {
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .btn {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            padding: 12px 35px;
+            border: 1px solid var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* HEADER */
+        header {
+            padding: 20px 0;
+            background: rgba(10, 11, 16, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .logo::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            transform: rotate(45deg);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+            background: url('images/hero_bg.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 11, 16, 0.7);
+            /* Dark overlay to make text pop */
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to top, var(--bg-dark), transparent);
+            z-index: 2;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            line-height: 0.9;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 40px 0;
+            background: rgba(30, 33, 41, 0.5);
+            border-top: 1px solid rgba(0, 240, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        /* WHY CHOOSE US */
+        .why-choose-us {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, var(--bg-dark), #0f1116);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            background: rgba(30, 33, 41, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            background: rgba(30, 33, 41, 0.6);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            /* Default to secondary (orange) or primary depending on icon */
+        }
+
+        .feature-item:nth-child(odd) .feature-icon {
+            color: var(--secondary);
+        }
+
+        .feature-item:nth-child(even) .feature-icon {
+            color: var(--primary);
+        }
+
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* SERVICES GRID */
+        .services {
+            padding: 100px 0;
+            position: relative;
+            background: url('images/services_bg_v2.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            z-index: 1;
+            /* Establish stacking context for children */
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 11, 16, 0.85);
+            /* Dark overlay */
+            z-index: -1;
+            /* Behind content */
+        }
+
+        .services::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--bg-dark), transparent 150px, transparent calc(100% - 150px), var(--bg-dark)),
+                linear-gradient(to right, var(--bg-dark), transparent 100px, transparent calc(100% - 100px), var(--bg-dark));
+            pointer-events: none;
+            /* Let clicks pass through */
+            z-index: 0;
+        }
+
+        .services .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title span {
+            color: var(--secondary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(30, 33, 41, 0.9), rgba(20, 22, 28, 0.9));
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--bg-card);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .card:hover::before {
+            background: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--secondary);
+            color: #000;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%);
+        }
+
+
+
+
+        /* TABS */
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            background: rgba(30, 33, 41, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 40px;
+            color: var(--text-muted);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: #050608;
+        }
+
+        .disclaimer-badge {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 10000;
+            background: rgba(20, 22, 28, 0.95);
+            color: var(--text-main);
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            max-width: 280px;
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.15);
+            border: 1px solid var(--secondary);
+            border-left: 4px solid var(--secondary);
+            line-height: 1.5;
+            backdrop-filter: blur(5px);
+        }
+
+        /* MARQUEE REVIEWS */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            display: flex;
+            width: max-content;
+        }
+
+        .marquee-content.scroll-left {
+            animation: scrollLeft 40s linear infinite;
+        }
+
+        .marquee-content.scroll-right {
+            animation: scrollRight 40s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scrollRight {
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* HEADER & NAV */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 20px 0;
+        transition: 0.3s;
+        background: rgba(10, 11, 16, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    header.scrolled {
+        padding: 15px 0;
+        background: rgba(10, 11, 16, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .logo span {
+        color: var(--primary);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
+        text-shadow: 0 0 10px var(--primary);
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* Update Body Padding for Fixed Header */
+    body {
+        padding-top: 80px;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="disclaimer-badge">
+        THIS IS A JOKE GUYS DONT TAKE IT SERIOUSLY... BUT I ACCEPT GENEROUS DONATIONS HIHI - AZUMACHI
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">NEKO<span>BOOSTING</span>.GG</a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#boosters">Boosters</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <a href="#" class="btn" style="background: transparent; padding: 8px 25px; font-size: 1rem;">Log In</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>DOMINATE STRINOVA WITH <br><span class="text-gradient">ELITE BOOSTERS</span></h1>
+            <p>The #1 trusted boosting service for Strinova. Safe, fast, and affordable rank boosting by top-tier
+                players. Reach your dream rank today.</p>
+            <a href="#" class="btn">HIRE YOUR BOOSTER NOW</a>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Comission Success Rate</p>
+        </div>
+        <div class="stat-item">
+            <h3>10,000+</h3>
+            <p>Orders Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3>4.9/5</h3>
+            <p>Average Rating</p>
+        </div>
+    </div>
+
+    <!-- WHY CHOOSE OUR SERVICES -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="font-size: 1.2rem; font-weight: 600; color: #fff;">Excellent</span>
+                <div style="color: #00b67a; font-size: 1.2rem;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span style="font-size: 1.2rem; color: #fff;"><i class="fas fa-star"
+                        style="color: #00b67a; margin-right: 5px; display: none;"></i>Trustpilot</span>
+            </div>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">WHY CHOOSE <span
+                    class="text-gradient">OUR SERVICES?</span></h2>
+            <div class="features-grid">
+                <!-- FEATURE 1 -->
+                <div class="feature-item">
+                    <i class="feature-icon fas fa-shield-alt"></i>
+                    <h3>Safe Services</h3>
+                </div>
+                <!-- FEATURE 2 -->
+                <div class="feature-item">
+                    <i class="feature-icon fas fa-user-tie"></i>
+                    <h3>Professionalism</h3>
+                </div>
+                <!-- FEATURE 3 -->
+                <div class="feature-item">
+                    <i class="feature-icon fas fa-gamepad"></i>
+                    <h3>Self Play</h3>
+                </div>
+                <!-- FEATURE 4 -->
+                <div class="feature-item">
+                    <i class="feature-icon fas fa-globe"></i>
+                    <h3>VPN Protection</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO IS NEKO SECTION -->
+    <!-- BOOSTER PROFILES SECTION -->
+    <section id="boosters" class="container" style="padding: 100px 20px;">
+
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="openTab('neko')">NEKO</button>
+            <button class="tab-btn" onclick="openTab('azumachi')">AZUMACHI</button>
+            <button class="tab-btn" onclick="openTab('elabearie')">ELABEARIE</button>
+            <button class="tab-btn" onclick="openTab('emiko')">EMIKO</button>
+            <button class="tab-btn" onclick="openTab('keroppi')">KEROPPI</button>
+            <button class="tab-btn" onclick="openTab('lifhee')">LIFHEE</button>
+            <button class="tab-btn" onclick="openTab('glacyon')">GLACYEON</button>
+            <button class="tab-btn" onclick="openTab('junlean')">JUNLEAN</button>
+        </div>
+
+        <!-- NEKO PROFILE -->
+        <div id="neko" class="tab-content active" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/neko_avatar_new.png" alt="Neko Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">NEKO?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Singularity Player.</strong> <br>
+                    Neko isn't just a booster; he's a Strinova anomaly. Consistently dominating the leaderboards, known
+                    for
+                    impossibly precise aim and tactical genius that leaves opponents questioning reality.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Specializing in high-velocity plays and 1v5 clutches, Neko ensures your rank isn't just
+                    "boosted"—it's
+                    catapulted into the upper echelons of competitive play. When you hire Neko, you aren't paying for
+                    wins;
+                    you're paying for <span style="color: var(--secondary);">total domination</span>.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTER</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Any character you want!</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Hard Carry</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AZUMACHI PROFILE -->
+        <div id="azumachi" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/azumachi_char.png" alt="Azumachi Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">AZUMACHI?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Troll.</strong> <br>
+                    Azumachi is the chaos in the system. When you need to go down, he's the one you call. He brings a
+                    unique
+                    set of skills to the table: controlled chaos, strategic throwing, and keeping the low ranks safe
+                    from
+                    imposters.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Specializing in "Reverse Boosting", Azumachi ensures you hit that target low rank with precision.
+                    Expect a masterclass in toxicity: rigorous t-bagging, creative trolling, and psychological warfare
+                    that
+                    leaves the lobby in shambles.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">QUARK (BOOSTED)</span>
+                        </div>
+                        <img src="images/rank_quark.png" alt="Quark Rank" style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTER</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Any character you want!</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Hard Throwing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ELABEARIE PROFILE -->
+        <div id="elabearie" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/elabearie_avatar.png" alt="Elabearie Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">ELABEARIE?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Multi-Account Warlord.</strong> <br>
+                    Also known as Gengu or Shigure, Elabearie is a force of nature. She doesn't just hold one spot in
+                    the Top 10; she holds multiple. A true Singularity phenomenon who treats the leaderboard like her
+                    personal high-score list.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Specializing in elite coaching, her students are known to hit Singularity within a week. Now
+                    streaming as a side hobby, she balances her pro-level dominance with educational content. Learn from
+                    the best to become the best.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTERS</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Yugiri / Fragrans</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Elite Coaching</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EMIKO PROFILE -->
+        <div id="emiko" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/emiko_avatar.png" alt="Emiko Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">EMIKO?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Eika Specialist.</strong> <br>
+                    Emiko brings style and skill together. A dedicated streamer and Singularity-ranked player primarily
+                    using Eika and Michele. He offers a different kind of premium service for those who want quality
+                    time with a high-tier player.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Beyond boosting, Emiko offers "Gaming Companion" sessions. Whether you want a duo partner to carry
+                    you or just someone fun to vibe with in casuals, he provides a personalized, engaging experience
+                    without the pressure of ranking up alone.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTERS</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Eika / Michelle</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Gaming Companion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEROPPI PROFILE -->
+        <div id="keroppi" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/keroppi_avatar.png" alt="Keroppi Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">KEROPPI?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Sniper Sensei.</strong> <br>
+                    Known to many as "The Sifu" or "The Sensei", Keroppi is a legend in the art of long-range dominance.
+                    A true one-trick sniper who has mastered the craft to absolute perfection.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    With Keroppi, you aren't just getting a boost; you're witnessing a masterclass. His Kanami and
+                    Kokona gameplay is unrivaled, consistently securing Singularity rank with precision and discipline.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTERS</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Kanami / Kokona</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">One Trick Sniper</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIFHEE PROFILE -->
+        <div id="lifhee" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/lifhee.png" alt="Lifhee Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">LIFHEE?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Singularity Ace.</strong> <br>
+                    Lifhee is a master of consistency and mechanical skill. A true Singularity powerhouse who dominates
+                    the leaderboard with calm precision.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Whether it's clutching crucial rounds or leading the team to victory, Lifhee provides a premium
+                    boosting experience focused on efficiency and winstreaks.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTER</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Any character you want!</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Precision Carry</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GLACYEON PROFILE -->
+        <div id="glacyon" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/glacyon.png" alt="Glacyeon Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">GLACYEON?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Professional Cat Gamer.</strong> <br>
+                    Don't let the avatar fool you. Glacyeon plays with the razor-sharp instincts of an apex predator. A
+                    Singularity-rank competitor who takes no prisoners.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Combining lightning-fast reflexes with elite game sense, Glacyeon turns the battlefield into a
+                    personalized hunting ground. Expect clean execution and dominance.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTER</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Michelle</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Cat Pro Gamer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JUNLEAN PROFILE -->
+        <div id="junlean" class="tab-content" style="align-items: center; gap: 50px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 300px; display: flex; justify-content: center;">
+                <img src="images/junlean.png" alt="Junlean Booster"
+                    style="width: auto; max-width: 100%; height: auto; max-height: 600px; display: block; border-radius: 20px; border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(0, 240, 255, 0.2); clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);">
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">WHO IS <span
+                        style="color: var(--primary);">JUNLEAN?</span></h2>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                    <strong style="color: #fff; font-size: 1.3rem;">The Baimo Incarnate.</strong> <br>
+                    Junlean didn't just master Baimo; he <span style="color: var(--primary);">became</span> Baimo.
+                    Through an arduous training arc that pushed human limits, he erased the boundary between player and
+                    avatar.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px;">
+                    Every movement is an extension of his own body, every cooldown tracked by instinct alone. Witnessing
+                    Junlean play isn't watching a gamer; it's seeing a perfect synchronization of soul and code.
+                    Absolute symbiosis.
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--primary); display: flex; align-items: center; gap: 15px;">
+                        <div>
+                            <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">RANK</h4>
+                            <span style="color: var(--primary); font-weight: bold;">SINGULARITY</span>
+                        </div>
+                        <img src="images/rank_singularity.png" alt="Singularity Rank"
+                            style="width: 50px; height: 50px;">
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">USED CHARACTER</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Baimo</span>
+                    </div>
+                    <div
+                        style="background: var(--bg-card); padding: 15px 25px; border-left: 3px solid var(--secondary);">
+                        <h4 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 5px;">SPECIALTY</h4>
+                        <span style="color: var(--secondary); font-weight: bold;">Baimo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">HOW IT <span
+                    class="text-gradient">WORKS</span></h2>
+
+            <div class="steps-container">
+                <!-- STEP 1 -->
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="step-number">1</div>
+                    </div>
+                    <h3>Select Package</h3>
+                    <p>Browse our premium boosting options and choose the one that fits your goals.</p>
+                </div>
+
+                <!-- CONNECTOR LINE 1 -->
+                <div class="step-connector"></div>
+
+                <!-- STEP 2 -->
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                        <div class="step-number">2</div>
+                    </div>
+                    <h3>Enter Details</h3>
+                    <p>Provide your Discord ID and Region. No password needed for Duo/Coaching!</p>
+                </div>
+
+                <!-- CONNECTOR LINE 2 -->
+                <div class="step-connector"></div>
+
+                <!-- STEP 3 -->
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                        <div class="step-number">3</div>
+                    </div>
+                    <h3>Rank Up</h3>
+                    <p>Sit back while our pros handle the rest, or play alongside them to victory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .how-it-works {
+            padding: 80px 0;
+            background: rgba(30, 33, 41, 0.2);
+            position: relative;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .step-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-card);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+            transition: 0.3s;
+        }
+
+        .step-item:hover .step-icon {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: #000;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 30px;
+            height: 30px;
+            background: var(--secondary);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            border: 2px solid #000;
+        }
+
+        .step-connector {
+            flex: 0.5;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            margin-top: 40px;
+            opacity: 0.5;
+        }
+
+        .step-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .step-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            max-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .step-connector {
+                display: none;
+                /* Hide horizontal lines on mobile */
+            }
+        }
+    </style>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="header-content"
+                style="text-align: center; margin-bottom: 60px; position: relative; z-index: 2;">
+                <h2 class="section-title" style="margin-bottom: 20px;">PREMIUM <span>BOOSTING</span> PACKAGES</h2>
+                <!-- PROMO CHARACTER -->
+                <div class="promo-container">
+                    <div class="speech-bubble">
+                        Use Promo Code <br> <span style="color: var(--primary); font-size: 1.2rem;">"Keroppi"</span>
+                        <br> to
+                        get
+                        50% discount!
+                    </div>
+                    <img src="images/promo_character.png" class="promo-character" alt="Promo Character">
+                </div>
+            </div>
+            <div class="grid">
+
+                <div class="card">
+                    <span class="tag">MOST POPULAR</span>
+                    <h3>Rank Boosting</h3>
+                    <p>Reach any rank you desire. Our professional boosters will play on your account to secure your
+                        target
+                        division efficiently and safely.</p>
+                    <span class="price"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px;">From 1500 <img
+                            src="images/bablo_2_crystals.png" style="width: 55px;" alt="Bablo"></span>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">Select</a>
+                </div>
+
+                <div class="card">
+                    <span class="tag">SAFE & SECURE</span>
+                    <h3>Duo Queue</h3>
+                    <p>Play alongside a professional booster. Learn from the best while climbing the ladder without
+                        sharing
+                        your account details.</p>
+                    <span class="price"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px;">From 2000 <img
+                            src="images/bablo_4_crystals.png" style="width: 55px;" alt="Bablo"></span>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">Select</a>
+                </div>
+
+                <div class="card">
+                    <span class="tag" style="background: #DC143C; color: #fff;">AZUMACHI SPECIAL</span>
+                    <h3>Safest Derank</h3>
+                    <p>The only safe way to drop ranks. We guarantee a seamless descent to lower tiers without
+                        triggering
+                        ban waves. Gatekeep responsibly.</p>
+                    <span class="price"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px;">From 2900 <img
+                            src="images/bablo_box_2.png" style="width: 55px;" alt="Bablo"></span>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">Select</a>
+                </div>
+
+                <!-- NEW BUNDLES ROW 2 -->
+                <div class="card">
+                    <span class="tag" style="background: #DC143C; color: #fff;">KEROPPI SPECIAL</span>
+                    <h3>VOD Reviews</h3>
+                    <p>Review mistakes and how you could play better. In-depth analysis to correct bad habits and
+                        improve game sense.</p>
+                    <span class="price"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px;">From 2500 <img
+                            src="images/bablo_4_crystals.png" style="width: 55px;" alt="Bablo"></span>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">Select</a>
+                </div>
+
+                <div class="card">
+                    <span class="tag" style="background: #DC143C; color: #fff;">ELABEARIE SPECIAL</span>
+                    <h3>Coaching</h3>
+                    <p>Elabearie special coaching course. A structured path to reach Singularity with personalized
+                        guidance from the best.</p>
+                    <span class="price"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px;">From 4500 <img
+                            src="images/bablo_box_4_cluster.png" style="width: 55px;" alt="Bablo"></span>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">Select</a>
+                </div>
+
+                <div class="card">
+                    <span class="tag" style="background: #FF6B00; color: #000;">FAST TRACK</span>
+                    <h3>SUPER VIP PREMIUM</h3>
+                    <p>Lifetime Membership. Get commissions started instantly. Priority support, status updates, and
+                        exclusive access to
+                        top-tier boosters.</p>
+                    <span class="price"
+                        style="display: flex; align-items: center; justify-content: center; gap: 8px;">From 9900 <img
+                            src="images/bablo_box_4_cluster.png" style="width: 55px;" alt="Bablo"></span>
+                    <a href="#" class="btn" style="width:100%; text-align:center;">Select</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .services {
+            position: relative;
+        }
+
+        .promo-container {
+            position: relative;
+            width: fit-content;
+            margin: 120px auto 20px;
+            /* Added top margin to clear the speech bubble from the title */
+            display: block;
+            z-index: 10;
+        }
+
+        .promo-character {
+            width: 180px;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        .speech-bubble {
+            position: absolute;
+            top: -50px;
+            right: -120px;
+            background: #fff;
+            color: #1a1a2e;
+            /* Dark text */
+            padding: 15px;
+            border-radius: 20px;
+            border-bottom-right-radius: 0;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            line-height: 1.3;
+            transform: rotate(-5deg);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="container" style="padding-top: 50px; padding-bottom: 100px; overflow: hidden;">
+        <h2 class="section-title" style="margin-bottom: 80px;">CLIENT <span>REVIEWS</span></h2>
+
+        <!-- ROW 1 (SCROLL LEFT) -->
+        <div class="marquee-container" style="margin-bottom: 20px;">
+            <div class="marquee-content scroll-left">
+                <!-- 1. AZU (NEKO) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_atom.png" title="Atom" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"I was Hardstuck Atom 2 for 3 seasons. Neko
+                        picked up my account and I woke up in Quark. The speed is unreal. worth every penny."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Neko</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/azu_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Azu****</h4>
+                            <span style="color: var(--secondary); font-size: 0.8rem;">SUPER VIP PREMIUM PLAN USER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. KITSUNE (AZUMACHI) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★☆☆☆☆</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_proton.png" title="Proton" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"This motherfucker dropped me to Proton. I was
+                        Quark."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Azumachi</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/kitsune_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Kitsune_99</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED BUYER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ELA (AZUMACHI) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_red_black.png" title="Black & Red" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_blue.png" title="Blue" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Wanted to play with my newbie friends but my
+                        rank was too high. Azu fixed that real quick. Dropped faster than my crypto portfolio."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Azumachi</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/voidwalker_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Ela*****</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED BUYER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. HARU (KEROPPI) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_blue.png" title="Blue" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_red_black.png" title="Superstring" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"His sniping skills are actually insane. I
+                        basically got babysitted by his Kokona all the way to Singularity. 10/10."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Keroppi</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_3.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Haru</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. ALBION (EMIKO) - MOVED FROM ROW 2 -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_electron.png" title="Electron" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"I ordered Emiko for "special night sessions"
+                        just the two of us, felt very good."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Emiko</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/noobmaster_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Albion</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. BACKSEATBLUE (ELABEARIE) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_blue.png" title="Blue" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Ordered hard carry services. Ela put me in a
+                        lobby with actual esports pros. I died in 2 seconds but watching her wipe the server solo was
+                        peak cinema. 10/10."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Elabearie</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_1.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">BackSeatBlue</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DUPLICATE SET FOR LOOP -->
+                <!-- 1. AZU (NEKO) - DUPLICATE -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_atom.png" title="Atom" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"I was Hardstuck Atom 2 for 3 seasons. Neko
+                        picked up my account and I woke up in Quark. The speed is unreal. worth every penny."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Neko</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/azu_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Azu****</h4>
+                            <span style="color: var(--secondary); font-size: 0.8rem;">SUPER VIP PREMIUM PLAN USER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★☆☆☆☆</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_proton.png" title="Proton" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"This motherfucker dropped me to Proton. I was
+                        Quark."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Azumachi</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/kitsune_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Kitsune_99</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED BUYER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_red_black.png" title="Black & Red" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_blue.png" title="Blue" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Wanted to play with my newbie friends but my
+                        rank was too high. Azu fixed that real quick. Dropped faster than my crypto portfolio."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Azumachi</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/voidwalker_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Ela*****</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED BUYER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_blue.png" title="Blue" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_red_black.png" title="Superstring" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"His sniping skills are actually insane. I
+                        basically got babysitted by his Kokona all the way to Singularity. 10/10."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Keroppi</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_3.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Haru</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. ALBION (EMIKO) - DUPLICATE -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_electron.png" title="Electron" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"I ordered Emiko for "special night sessions"
+                        just the two of us, felt very good."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Emiko</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/noobmaster_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Albion</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_blue.png" title="Blue" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Ordered hard lobby services. Ela put me in a
+                        lobby with actual esports pros. I died in 2 seconds but watching her wipe the server solo was
+                        peak cinema. 10/10."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Elabearie</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_1.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">BackSeatBlue</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- ROW 2 (SCROLL RIGHT) -->
+        <div class="marquee-container">
+            <div class="marquee-content scroll-right">
+
+                <!-- 1. KAIRO (ELABEARIE) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_proton.png" title="Proton" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Elabearie's coaching is insane. I went from
+                        hardstuck Proton to top 500 in literally a week. She explains everything so clearly."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Elabearie</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_1.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">KaiRO</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. RYU (EMIKO) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_proton.png" title="Proton" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_electron.png" title="Electron" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Played a few hours with Emiko. Super chill
+                        vibes and cracked on Eika. Honestly was just fun to play with someone that good."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Emiko</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_2.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Ryu</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. RINRIN (LIFHEE) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_rinrin_start.png" title="Agony" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Lifhee's aim is terrifying. I just held
+                        W and we won. Easiest rank up of my life. 100% winrate insane."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Lifhee</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_lifhee.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">RinRin</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. MEOWMASTER (GLACYEON) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_meow_start.png" title="Red Lotus" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Michele gameplay is clean! Thought the cat
+                        avatar was a gimmick but Glacyeon is the real deal. Purrfect boost."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Glacyeon</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_glacyon.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">MeowMaster</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. SWORDSAINT (JUNLEAN) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_sword_start.png" title="Nirvana" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"That Baimo... I've never seen anyone move like
+                        that. Junlean returned from his training arc a completely different beast. Absolutely
+                        unstoppable."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Junlean</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_junlean.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">SwordSaint</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_atom.png" title="Atom" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"I did nothing, she just ace all matches and I
+                        got to quark!"</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Elabearie</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/shenhenigans_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">shenhenigans</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DUPLICATE SET -->
+                <!-- 1. KAIRO (ELABEARIE) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_proton.png" title="Proton" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Elabearie's coaching is insane. I went from
+                        hardstuck Proton to top 500 in literally a week. She explains everything so clearly."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Elabearie</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_1.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">KaiRO</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. RYU (EMIKO) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_proton.png" title="Proton" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_electron.png" title="Electron" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Played a few hours with Emiko. Super chill
+                        vibes and cracked on Eika. Honestly was just fun to play with someone that good."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Emiko</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_2.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">Ryu</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. RINRIN (LIFHEE) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_rinrin_start.png" title="Agony" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Lifhee's aim is terrifying. I just held
+                        W and we won. Easiest rank up of my life. 100% winrate insane."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Lifhee</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_lifhee.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">RinRin</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. MEOWMASTER (GLACYEON) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_meow_start.png" title="Red Lotus" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"Michele gameplay is clean! Thought the cat
+                        avatar was a gimmick but Glacyeon is the real deal. Purrfect boost."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Glacyeon</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_glacyon.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">MeowMaster</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. SWORDSAINT (JUNLEAN) -->
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_sword_start.png" title="Nirvana" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_singularity.png" title="Singularity" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"That Baimo... I've never seen anyone move like
+                        that. Junlean returned from his training arc a completely different beast. Absolutely
+                        unstoppable."</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Junlean</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/client_pfp_junlean.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">SwordSaint</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="min-width: 300px; max-width: 320px; margin-right: 30px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <div style="color: #FFD700; font-size: 1.2rem;">★★★★★</div>
+                        <div
+                            style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 10px;">
+                            <img src="images/rank_atom.png" title="Atom" style="width: 25px;">
+                            <span style="color: var(--text-muted);">➜</span>
+                            <img src="images/rank_quark.png" title="Quark" style="width: 25px;">
+                        </div>
+                    </div>
+                    <p style="font-style: italic; margin-bottom: 20px;">"booster used: elabearie i did nothing she just
+                        ace all matches and i got to quark"</p>
+                    <div style="margin-bottom: 15px;">
+                        <span style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">Booster
+                            Used: <span style="color: var(--primary);">Elabearie</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <img src="images/shenhenigans_pfp.png"
+                            style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #fff;">shenhenigans</h4>
+                            <span style="color: var(--text-muted); font-size: 0.8rem;">VERIFIED CLIENT</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 50px; text-align: center;">FREQUENTLY ASKED <span
+                    class="text-gradient">QUESTIONS</span></h2>
+
+            <div class="faq-accordion">
+                <details>
+                    <summary>Is my account safe?</summary>
+                    <p>Yes, absolutely. We use premium VPNs matching your location and encrypt all data. We prioritize
+                        security above all else and have a 0% ban rate.</p>
+                </details>
+
+                <details>
+                    <summary>Can I play while the boost is active?</summary>
+                    <p>Yes, you can pause the boost at any time via Discord. Just let your booster know when you want to
+                        play, and they will log off. Communication is key.</p>
+                </details>
+
+                <details>
+                    <summary>Do you use cheats or exploits?</summary>
+                    <p>Never. All boosts are done by real, super professional players. We strictly prohibit any use of
+                        cheats,
+                        scripts, or exploits. Your account's integrity is our priority.</p>
+                </details>
+
+                <details>
+                    <summary>Can I appear offline?</summary>
+                    <p>Yes, our boosters can play in offline mode so your friends won't know you're getting a boost.
+                        Just request this option when ordering.</p>
+                </details>
+
+                <details>
+                    <summary>Why is Azumachi so handsome?</summary>
+                    <p>Because he is the best.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-section {
+            padding: 100px 0;
+            background: rgba(10, 11, 16, 0.5);
+            position: relative;
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: rgba(30, 33, 41, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        details[open] {
+            border-color: var(--primary);
+            background: rgba(30, 33, 41, 0.6);
+        }
+
+        summary {
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            color: var(--primary);
+        }
+
+        summary::after {
+            content: '+';
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details p {
+            padding: 0 20px 20px;
+            margin-top: 0;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <!-- COL 1: BRAND -->
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">NEKO<span>BOOSTING</span>.GG</div>
+                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">
+                    The #1 trusted boosting service for Strinova. Professional, safe, and fast results guaranteed.
+                </p>
+                <!-- PAYMENT ICONS -->
+                <div style="display: flex; gap: 10px; opacity: 0.7;">
+                    <i class="fab fa-cc-paypal" style="font-size: 1.5rem;"></i>
+                    <i class="fab fa-bitcoin" style="font-size: 1.5rem;"></i>
+                    <i class="fab fa-cc-visa" style="font-size: 1.5rem;"></i>
+                </div>
+            </div>
+
+            <!-- COL 2: LINKS -->
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#boosters">Boosters</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- COL 3: LEGAL & DISCLAIMER -->
+            <div class="footer-col">
+                <h4>LEGAL</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="#" class="social-btn"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container" style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+                <p>&copy; 2026 Azu Corp Services. Not affiliated with Strinova. All rights reserved.</p>
+                <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.5;">Disclaimer: This site is freaking joke pls
+                    dont take it seriously (dont hit me).</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .site-footer {
+            background: #050608;
+            padding: 80px 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            padding-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            background: #000;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+
+
+
+
+    <!-- ORDER MODAL -->
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeOrderModal()">&times;</span>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #fff; font-family: 'Rajdhani'; margin-bottom: 10px;">COMPLETE YOUR <span
+                        class="text-gradient">ORDER</span></h2>
+                <p style="color: var(--text-muted);">Please provide your details to proceed.</p>
+            </div>
+
+            <form id="orderForm" onsubmit="handleOrder(event)">
+                <div class="form-group">
+                    <label>Discord ID</label>
+                    <input type="text" placeholder="Example: ILoveSixSeven" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Region</label>
+                    <select required>
+                        <option value="" disabled selected>Select Region</option>
+                        <option value="NA">North America (NA)</option>
+                        <option value="EU">Europe (EU)</option>
+                        <option value="ASIA">Asia (SEA/JP/KR)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Notes (Optional)</label>
+                    <textarea rows="3" placeholder="Specific agents, streaming request, etc."></textarea>
+                </div>
+
+                <button type="submit" class="btn"
+                    style="width: 100%; border: none; background: var(--primary); color: #000;">PROCEED TO
+                    PAYMENT</button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #15171e;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.1);
+            position: relative;
+            transform: scale(0.8);
+            transition: 0.3s;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+    </style>
+
+    <script>
+        function openTab(boosterName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Deactivate all tab buttons
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+
+            // Show current tab content and activate button
+            document.getElementById(boosterName).classList.add('active');
+
+            // Find the button that called this
+            const targetBtn = Array.from(tabBtns).find(btn => btn.getAttribute('onclick').includes(boosterName));
+            if (targetBtn) targetBtn.classList.add('active');
+        }
+
+        // MODAL LOGIC
+        const modal = document.getElementById('orderModal');
+        const btns = document.querySelectorAll('.btn'); // Select all buttons
+
+        // Filter standard buttons to open modal (excluding Nav link likely)
+        btns.forEach(btn => {
+            if (btn.textContent.includes("HIRE") || btn.textContent.includes("Select") || btn.textContent.includes("BUY")) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openOrderModal();
+                });
+            }
+        });
+
+        function openOrderModal() {
+            modal.style.display = 'flex';
+            // slight delay to allow display flex to apply before opacity transition
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+        }
+
+        function closeOrderModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // Close outside click
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeOrderModal();
+            }
+        }
+
+        function handleOrder(e) {
+            e.preventDefault();
+            // Simulate processing
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            submitBtn.textContent = "PROCESSING...";
+            submitBtn.style.opacity = "0.7";
+
+            setTimeout(() => {
+                alert("Order Request Sent! Please check your Discord friend requests.");
+                closeOrderModal();
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = "1";
+                e.target.reset();
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>
