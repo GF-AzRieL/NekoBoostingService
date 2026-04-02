@@ -106,6 +106,6 @@ No build step. Just open `index.html` in a browser and it runs. If you're in VS 
 
 ---
 
-Made by Azumachi & the community. 🐾
+Made by Azumachi 🐾
 
 
