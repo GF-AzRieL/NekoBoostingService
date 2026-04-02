@@ -11,7 +11,7 @@ A parody boosting service website built for Strinova — made as a joke for the 
 
 ## What is this?
 
-It's a fake boosting agency website built around a group of friends who actually play Strinova at a high level. The site presents each person as a professional "booster" with their own exaggerated lore, rank, and specialty. Neko hard carries. Azumachi hard throws. Elabearie holds multiple Top 10 spots simultaneously across different accounts. You get the idea.
+It's a fake boosting agency website built around a group of friends who actually play Strinova at a super high level (trust me bro). The site presents each person as a professional "booster" with their own exaggerated lore, rank, and specialty. Neko hard carries. Azumachi hard throws. Elabearie holds multiple Top 10 spots simultaneously across different accounts. You get the idea.
 
 No real money is exchanged. No accounts are actually touched. It's just a bit with a clean UI slapped on top.
 
