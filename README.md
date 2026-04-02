@@ -1,9 +1,6 @@
 # NekoBoostingService
 The ultimate (satirical) elite boosting platform for Strinova. Featuring high-velocity rank climbs, professional throwing services, and the most sophisticated 'Bablo' economy on the web, offered by the Azu Corp. 
 
-
-# NekoBoostingGG
-
 A parody boosting service website built for Strinova — made as a joke for the community, with way too much effort put into it.
 
 > *"THIS IS A JOKE GUYS DONT TAKE IT SERIOUSLY... BUT I ACCEPT GENEROUS DONATIONS HIHI"* — Azumachi
