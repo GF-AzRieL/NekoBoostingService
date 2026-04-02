@@ -38,7 +38,7 @@ Each booster has their own profile tab on the site with a description, rank badg
 
 The site has three main service categories, each broken down into sub-options:
 
-**Rank Boosting** — You hand over your account (or play alongside), the booster does their thing, you climb. The site lists it as starting from $3.99 depending on which ranks you're going between. There's even a "Best Value" tag on the mid-tier package.
+**Rank Boosting** — You hand over your account (or play alongside), the booster does their thing, you climb. The site lists it depending on which ranks you're going between. There's even a "Best Value" tag on the mid-tier package.
 
 **Placement Matches** — For when you just want your placement games played by someone who actually knows what they're doing. Also useful if you can't be bothered to tryhard 10 matches for your starting rank.
 
